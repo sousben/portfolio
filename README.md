@@ -9,7 +9,10 @@ In this repo, you will find a selection of the exercises I found the most intere
 
 On the following topics:
   - [python]
-  - data science - modelling
+  - intro to Data Science: SQL, time series, anomaly detection...
+  - Data Science - modelling
+  - supervised learning
+  - unsupervised learning
   - computer vision
   - natural language processing
   

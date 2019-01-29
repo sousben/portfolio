@@ -1,0 +1,12 @@
+Dataset:  triple_vertical.csv
+
+Source: R.T. Hamilton, S.J. Schultz, R.J. Schmitz, D.H. Perrin (2008).
+"Triple-Hop Distance as a Valid Predictor of Lower Limb Strength and Power,"
+Journal of Athletic Training, Vol. 43, #2, pp. 144-151.
+
+Description: Triple Hop Distance and Vertical jump height (both, in cm)
+for 40 collegiate soccer players. Data simulated to match mean, sd, min, max, corr.
+
+Variables/Labels
+Triple-Hop distance in cm   (triple)
+Vertical jump in cm  (vertical)

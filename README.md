@@ -3,7 +3,7 @@
 French dude living in Israel, I am specializing in Data Science and Artificial Intelligence, after working 12 years in quantitative finance in Paris, London and Tel Aviv.
 
 ## [Resume]  
-👉🏻 I am currently looking for my next professional challenge
+👉🏻 I am currently looking for my next professional challenge. Feel free to look at my [CV]
 
 
 ## [Israel Tech Challenge]
@@ -33,7 +33,7 @@ For an improved visual experience run the following command (requires [jupyter-t
 jt -t onedork -tfs 12 -nfs 12 -ofs 10 -cellw 1200 -lineh 150 -kl -N -T
 ```
 
-![dark theme](https://github.com/bensoussanj/portfolio/tree/master/Image/jupy_visu.png "Jupyter Visualization")
+![dark theme](https://github.com/bensoussanj/portfolio/blob/master/Images/jupy_visu.png "Jupyter Visualization")
 
 To revert to your initial jupyter themes setting run:
 ```bash
@@ -42,6 +42,7 @@ jt -r
 
 
 [Resume]: <https://github.com/bensoussanj/portfolio/tree/master/CV_jbensoussan.pdf>
+[CV]: <https://github.com/bensoussanj/portfolio/tree/master/CV_jbensoussan.pdf>
 [Israel Tech Challenge]: <https://www.itc.tech/fellows-data-science/>
 [python]: <https://github.com/bensoussanj/portfolio/tree/master/01_ITC_Python>
 [intro to Data Science]: <https://github.com/bensoussanj/portfolio/tree/master/02_ITC_IntroToDS>

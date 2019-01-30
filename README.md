@@ -4,7 +4,8 @@ French dude living in Israel, I am specializing in Data Science and Artificial I
 <br><br> 
 
 ## [Resume]  
-👉🏻 I am currently looking for my next professional challenge. Feel free to look at my [CV]
+👉🏻 I am currently looking for my next professional challenge.  
+Feel free to look at my [CV]!
 <br><br>
 
 ## [Israel Tech Challenge]

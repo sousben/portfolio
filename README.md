@@ -4,7 +4,7 @@ French dude living in Israel, I am specializing in Data Science and Artificial I
 
 ## [Resume]  
 👉🏻 I am currently looking for my next professional challenge. Feel free to look at my [CV]
-
+<br>
 
 ## [Israel Tech Challenge]
 From October 2018 to March 2019, I will be attending a professional course in Data Science, with a specialization in Natural Language Processing and Computer Vision.
@@ -19,19 +19,21 @@ On the following topics:
   - [Unsupervised Learning]: Clustering, Singular Value Decomposition, Independent Component Analysis, Convex Optimization
   - [Deep Learning]: Neural Networks, CNN, LSTM
   - [Natural Language Processing]: Word Embedding, POS Tagging, Entity Extraction
-  
+<br>
   
 ## Packages
 To create a Conda environment including all the packages needed in this portfolio run:
 ```bash
-conda create env -f ITC.yml
+conda env create -f ITC.yml
 ```
+<br>
 
 ## Dark Theme in Jupyter
 For an improved visual experience run the following command (requires [jupyter-themes])
 ```bash
 jt -t onedork -tfs 12 -nfs 12 -ofs 10 -cellw 1200 -lineh 150 -kl -N -T
 ```
+<br>
 
 ![dark theme](https://github.com/bensoussanj/portfolio/blob/master/Images/jupy_visu.png "Jupyter Visualization")
 

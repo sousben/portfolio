@@ -25,20 +25,20 @@ On the following topics:
 ## Packages
 To create a Conda environment including all the packages needed in this portfolio run:
 ```bash
-conda env create -f ITC.yml
+$ conda env create -f ITC.yml
 ```
 <br>
 
 ## Dark Theme in Jupyter
 For an improved visual experience run the following command (requires [jupyter-themes])
 ```bash
-jt -t onedork -tfs 12 -nfs 12 -ofs 10 -cellw 1200 -lineh 150 -kl -N -T
+$ jt -t onedork -tfs 12 -nfs 12 -ofs 10 -cellw 1200 -lineh 150 -kl -N -T
 ```
 ![dark theme](https://github.com/bensoussanj/portfolio/blob/master/Images/jupy_visu.png "Jupyter Visualization")
 
 To revert to your initial jupyter themes setting run:
 ```bash
-jt -r
+$ jt -r
 ```
 
 

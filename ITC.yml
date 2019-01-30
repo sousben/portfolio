@@ -1,0 +1,43 @@
+name: ITC
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6.7
+  - bokeh
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - flask
+  - shap
+  - tensorflow
+  - keras
+  - pip
+  - pip:
+    - bs4
+    - bottle==0.12.10
+    - cvxpy
+    - spacy==2.0.18
+    - ipwhois
+    - graphviz
+    - dash
+    - dash_core_components
+    - dash_html_components
+    - pygame
+  - click
+  - graphviz
+  - jupyter
+  - mysql
+  - mysql-connector-python
+  - pytest
+  - sqlite
+  - xgboost
+  - tqdm
+  - jupyterthemes
+  - grequests
+  - opencv
+  - nltk
+  - jupyternotify
+  - nodejs
+  - cvxpy
+  - seaborn

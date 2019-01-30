@@ -1,10 +1,11 @@
 # jeremy bensoussan - portfolio
 
 French dude living in Israel, I am specializing in Data Science and Artificial Intelligence, after working 12 years in quantitative finance in Paris, London and Tel Aviv.
+<br><br> 
 
 ## [Resume]  
 👉🏻 I am currently looking for my next professional challenge. Feel free to look at my [CV]
-<br>
+<br><br>
 
 ## [Israel Tech Challenge]
 From October 2018 to March 2019, I will be attending a professional course in Data Science, with a specialization in Natural Language Processing and Computer Vision.
@@ -33,8 +34,6 @@ For an improved visual experience run the following command (requires [jupyter-t
 ```bash
 jt -t onedork -tfs 12 -nfs 12 -ofs 10 -cellw 1200 -lineh 150 -kl -N -T
 ```
-<br>
-
 ![dark theme](https://github.com/bensoussanj/portfolio/blob/master/Images/jupy_visu.png "Jupyter Visualization")
 
 To revert to your initial jupyter themes setting run:

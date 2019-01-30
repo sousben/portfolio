@@ -1,6 +1,6 @@
 # jeremy bensoussan - portfolio
 
-French dude living in Israel, I am specializing in Data Science and Artificial Intelligence, after working 12 years in quantitative finance in Paris, London and Tel Aviv.
+Frenchy living in Israel, I am specializing in Data Science and Artificial Intelligence, after working 12 years in quantitative finance in Paris, London and Tel Aviv.
 <br><br> 
 
 ## [Resume]  

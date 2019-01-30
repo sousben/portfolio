@@ -4,8 +4,8 @@ Frenchie living in Israel, I am specializing in Data Science and Artificial Inte
 <br><br> 
 
 ## [Resume]  
-👉🏻 I am currently looking for my next professional challenge.  
-Feel free to look at my [CV]!
+👉🏻 I am currently looking for my next professional challenge - Starting in mid march 2019!
+Feel free to look at my [CV]
 <br><br>
 
 ## [Israel Tech Challenge]

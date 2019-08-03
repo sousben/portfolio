@@ -1,0 +1,16 @@
+import sqlite3
+import pandas as pd
+DB_FILENAME = '../taxi_trips.db'
+
+def run_query(query):
+    with sqlite3.connect(DB_FILENAME) as con:
+        cur = con.cursor()
+        cur.execute(query)
+        col_names = []
+        row_values = []
+        for col_name in cur.description:
+            col_names.append(col_name[0])
+        for row in cur.fetchall():
+            row_values.append(list(row))
+            
+        return pd.DataFrame(row_values, columns=col_names)

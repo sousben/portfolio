@@ -1,0 +1,124 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import deque
+AdjList = []
+minHealth = sys.maxsize
+maxHealth = 0
+opcount = 0
+
+def init_trie(genes):
+    """ creates a trie of keywords, then sets fail transitions """
+    AdjList.append({'value':'', 'next_states':{},'fail_state':0,'health_index':[]})
+    add_keywords(genes)
+    set_fail_transitions()
+
+def add_keywords(keywords):
+    for i in range(len(keywords)):
+        keyword = keywords[i]
+
+        """ add a keyword to the trie and mark output at the last node """
+        current_state = 0
+        j = 0
+
+        if keyword[j] not in AdjList[current_state]["next_states"]: child = None
+        else: child = AdjList[current_state]["next_states"][keyword[j]]
+        while child != None:
+            current_state = child
+            j = j + 1
+            if j < len(keyword):
+                if keyword[j] not in AdjList[current_state]["next_states"]: child = None
+                else: child = AdjList[current_state]["next_states"][keyword[j]]
+            else:
+                break
+                
+        for k in range(j, len(keyword)):
+            node = {'value':keyword[k],'next_states':{}, 'fail_state':0,'health_index':[]}
+            AdjList.append(node)
+            AdjList[current_state]["next_states"][keyword[k]]= len(AdjList) - 1
+
+            current_state = len(AdjList) - 1
+
+        AdjList[current_state]["health_index"].extend([i])
+
+def set_fail_transitions():
+    #global opcount
+    q = deque()
+    child = 0
+
+    for node in list(AdjList[0]["next_states"].values()):
+        q.append(node)
+        AdjList[node]["fail_state"] = 0
+    while q:
+        r = q.popleft()
+        for child in list(AdjList[r]["next_states"].values()):
+            q.append(child)
+            state = AdjList[r]["fail_state"]
+#            index = ord(AdjList[child]["value"])-ord('a')
+            while AdjList[child]["value"] not in AdjList[state]["next_states"] and state != 0:
+                #opcount += 1
+                state = AdjList[state]["fail_state"]
+            if AdjList[child]["value"] not in AdjList[state]["next_states"]:
+                AdjList[child]["fail_state"] = None
+            else:
+                AdjList[child]["fail_state"] = AdjList[state]["next_states"][AdjList[child]["value"]]
+            if AdjList[child]["fail_state"] is None:
+                AdjList[child]["fail_state"] = 0
+            AdjList[child]["health_index"].extend(AdjList[AdjList[child]["fail_state"]]["health_index"])
+            
+def scoreStrand(strand, healthList, first, last):
+    """ returns true if line contains any keywords in trie """
+    current_state = 0
+    score = 0
+    global minHealth
+    global maxHealth
+    
+    for i in range(len(strand)):
+        if strand[i] not in AdjList[current_state]["next_states"]:
+            next_state = None
+        else:
+            next_state = AdjList[current_state]["next_states"][strand[i]]
+        
+        while next_state is None and current_state != 0:
+            current_state = AdjList[current_state]["fail_state"]
+            if strand[i] not in AdjList[current_state]["next_states"]:
+                next_state = None
+            else:
+                next_state = AdjList[current_state]["next_states"][strand[i]]
+        current_state = next_state
+
+        if current_state is None:
+            current_state = 0
+        else:
+            print(AdjList[current_state]["health_index"])
+            for j in AdjList[current_state]["health_index"]:
+                if j >= first and j <= last:
+                    score += healthList[j]
+    
+    #global opcount
+    #opcount +=1
+    if score < minHealth: minHealth = score
+    if score > maxHealth: maxHealth = score
+    
+if __name__ == '__main__':
+    n = int(input())
+    genes = input().rstrip().split()
+    health = list(map(int, input().rstrip().split()))
+    s = int(input())
+    
+    init_trie(genes)
+
+    for s_itr in range(s):
+        firstLastd = input().split()
+        first = int(firstLastd[0])
+        last = int(firstLastd[1])
+        d = firstLastd[2]
+
+        scoreStrand(d, health, first, last)
+            
+    print(str(minHealth)+' '+str(maxHealth))
+    #print(opcount)

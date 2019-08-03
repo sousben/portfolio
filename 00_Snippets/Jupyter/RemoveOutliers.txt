@@ -1,0 +1,7 @@
+import pandas as pd
+import numpy as np
+
+
+# Remove outliers as per 'column_name' values
+def remove_outliers(df, column_name, n_standard_dev=2):
+    return df[abs(df[column_name] - np.mean(df[column_name])) < n_standard_dev * np.std(df[column_name])]

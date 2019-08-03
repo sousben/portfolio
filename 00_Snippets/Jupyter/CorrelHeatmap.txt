@@ -1,0 +1,25 @@
+#!/bin/python3
+
+#correlation heatmap of dataset
+def correlation_heatmap(df):
+    _ , ax = plt.subplots(figsize =(14, 12))
+    colormap = 'RdYlGn'
+    
+    mask = np.zeros_like(df.corr(), dtype=np.bool)
+    mask[np.triu_indices_from(mask, 1)] = True
+    
+    _ = sns.heatmap(
+        df.corr(),
+        mask = mask,
+        cmap = colormap,
+        square=True, 
+        cbar_kws={'shrink':0.95 }, 
+        ax=ax,
+        annot=True, 
+        linewidths=0.1,vmax=1, vmin=-1, linecolor='white',
+        annot_kws={'fontsize':12 }
+    )
+    
+    plt.title('Features Correlation Heatmap', y=1.05, size=15)
+
+correlation_heatmap(df_wrangled)

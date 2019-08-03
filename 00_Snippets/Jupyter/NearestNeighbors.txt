@@ -1,0 +1,51 @@
+#!/bin/python3
+
+# K nearest neighbors (density score)
+
+# 1. normalize features
+df_norm = pd.DataFrame()
+df_norm['n_rides'] = (df_rides.n_rides - df_rides.n_rides.mean()) /  df_rides.n_rides.std()
+df_norm['n_taxis'] = (df_rides.n_taxis - df_rides.n_taxis.mean()) / df_rides.n_taxis.std()
+
+# 2. calculate neighbors
+from sklearn.neighbors import NearestNeighbors
+neighbors = NearestNeighbors(50)
+neighbors.fit(df_norm.values)
+# kneighbors returns (distances, indices)
+# first value is the point itself, so requesting 51 neighbors and removing the first
+distances = neighbors.kneighbors(df_norm.values, 51)[0][:,1:]
+
+# Plot the series
+plt.figure(figsize=(18,5))
+plt.title('Average Neighbors distance')
+plt.plot(df_norm.index, df_norm['avg_dist'], c=plt.cm.get_cmap('hsv', 11)(4), label='density score')
+plt.legend()
+plt.show()
+
+# visualize days with density score >1 as outliers
+df_norm['anomalies'] = df_norm['avg_dist'] > 1
+
+# Plot the series
+plt.figure(figsize=(18,5))
+plt.title('Average Neighbors distance (density)')
+plt.plot(df_norm.index, df_norm['avg_dist'], c=plt.cm.get_cmap('hsv', 11)(4), label='density score')
+plt.scatter(df_norm[df_norm['anomalies']].index, df_norm[df_norm['anomalies']].avg_dist.values, s=80, c='red', label='outliers')
+plt.legend()
+plt.show()
+
+fig, ax = plt.subplots(figsize=(18,5))
+fig.suptitle('Normalized number of rides by number of taxis')
+ax.scatter(df_norm[~df_norm['anomalies']].n_rides, df_norm[~df_norm['anomalies']].n_taxis, s=80, c='pink', label='density <= 1')
+ax.scatter(df_norm[df_norm['anomalies']].n_rides, df_norm[df_norm['anomalies']].n_taxis, s=80, c='red', label='density > 1')
+ax.set_xlabel('rides (normalized)')
+ax.set_ylabel('working taxis (normalized)')
+fig.legend()
+fig.show()
+
+# Plot the series
+plt.figure(figsize=(18,5))
+plt.title('Density based anomalies for Rides/Taxi/Day')
+plt.plot(X_train.index, X_train['n_rides'], c='orange', label='daily rides')
+plt.scatter(X_train[df_norm['avg_dist'] > 1].index, X_train[df_norm['avg_dist'] > 1].n_rides.values, s=80, c='red', label='density > 1')
+plt.legend()
+plt.show()

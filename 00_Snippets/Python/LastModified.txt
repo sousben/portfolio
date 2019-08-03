@@ -1,0 +1,7 @@
+#!/bin/python3
+
+import os
+
+def last_modified(filename):
+    statbuf = os.stat(filename)
+    return format(statbuf.st_mtime)

@@ -1,0 +1,3 @@
+import numpy as np
+
+df = np.random.normal(0, 1, 100)

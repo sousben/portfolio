@@ -1,0 +1,13 @@
+from scipy.interpolate import interp1d
+
+def smooth_curve(x, y):
+    # Use cubic spline interpolation to smooth the bounary line a tad
+    f1 = interp1d(x, y,kind='cubic')
+    df_s = pd.DataFrame()
+    new_index = np.linspace(x.min(),x.max(),len(y)*100)
+    df_s['smooth'] = f1(new_index)
+    df_s.index = new_index
+
+    return new_index, df_s['smooth']
+
+smooth_ind, smooth_vals = smooth_curve(x, y)

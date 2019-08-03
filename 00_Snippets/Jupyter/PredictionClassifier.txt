@@ -1,0 +1,42 @@
+# data analysis and wrangling
+import pandas as pd
+import numpy as np
+
+# machine learning
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression, Perceptron
+from sklearn.neural_network import MLPClassifier
+from sklearn import preprocessing
+from sklearn import model_selection
+from sklearn.pipeline import make_pipeline
+
+
+
+# Encode the data before fitting the models
+le = preprocessing.LabelEncoder()
+df_enc = df_wrangled.apply(le.fit_transform)
+df_enc.head()
+
+# Let's now remove the boat and rerun the model
+# Let's prepare our training and test datasets
+y = df_enc['survived']
+X = df_enc.drop(['survived','escaped'], axis=1)
+df_train, df_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Select the model below
+# clf = RandomForestClassifier()
+# clf = LogisticRegression()
+# clf = KNeighborsClassifier(n_neighbors = 7)
+clf = GradientBoostingClassifier(learning_rate=0.5,max_depth=5,n_estimators=20)
+
+# Create a list of the feature column's names
+clf.fit(df_train, y_train)
+
+# Calculate prediction accuracy
+score = clf.score(df_test, y_test)
+print("Predicted accurately %.2f%% of results" % (100*score))

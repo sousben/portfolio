@@ -1,0 +1,15 @@
+#!/bin/python3
+
+def binary_search(array, target):
+    lower = 0
+    upper = len(array)
+    while lower < upper:
+        x = (lower + upper) // 2
+        val = array[x]
+        if target == val:
+            return x
+        elif target > val:
+            if lower == x: break
+            lower = x
+        elif target < val:
+            upper = x

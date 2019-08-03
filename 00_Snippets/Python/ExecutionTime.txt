@@ -1,0 +1,6 @@
+#!/bin/python3
+
+from time import monotonic
+start = monotonic()
+duration = monotonic() - start
+print('Time = %.3fsec' % duration)

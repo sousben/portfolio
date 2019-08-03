@@ -1,0 +1,9 @@
+from sklearn.tree import export_graphviz
+from graphviz import Source
+from IPython.display import SVG
+from sklearn.tree import DecisionTreeClassifier
+
+clf = DecisionTreeClassifier(max_depth=1)
+clf.fit(X_, Y_, sample_weight=weights)
+graph = Source(export_graphviz(clf, out_file=None, feature_names=X.columns))
+display(SVG(graph.pipe(format='svg')))

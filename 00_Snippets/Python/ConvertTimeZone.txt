@@ -1,0 +1,12 @@
+#!/bin/python3
+
+def unix_timestamp_to_lisbon_time(unix_timestamp):
+    """This method converts a unix datetime to utc then to the datetime in Portugal
+    taking daylight saving times into account"""
+    utc_tz = pytz.utc
+    lisbon_tz = pytz.timezone('Europe/Lisbon')
+
+    utc_time = utc_tz.localize(datetime.utcfromtimestamp(unix_timestamp))
+    lb_time = utc_time.astimezone(lisbon_tz)
+
+    return lb_time

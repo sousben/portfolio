@@ -1,0 +1,17 @@
+#!/bin/python3
+
+# LocalOutlierFactor
+
+# 1. normalize features
+df_norm = pd.DataFrame()
+df_norm['n_rides'] = (df_rides.n_rides - df_rides.n_rides.mean()) /  df_rides.n_rides.std()
+df_norm['n_taxis'] = (df_rides.n_taxis - df_rides.n_taxis.mean()) / df_rides.n_taxis.std()
+
+# 2. Calculate LOF
+# fit the model for outlier detection (default)
+clf = LocalOutlierFactor(n_neighbors=50, contamination=0.5)
+clf.fit(df_norm.values)
+
+X_scores = clf.negative_outlier_factor_
+
+radius = (X_scores.max() - X_scores) / (X_scores.max() - X_scores.min())
